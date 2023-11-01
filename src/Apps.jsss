@@ -1,8 +1,7 @@
-import React from "react";
-import Employee from "./Components/PrEmp/Employee";
+import Employee from "./Components/Employee";
 import { useState } from "react";
 
-const App = () => {
+function App() {
   const [employee, setEmployee] = useState([
     {
       id: 1,
@@ -36,18 +35,34 @@ const App = () => {
     },
   ]);
 
-  const empElement = employee.map((employee) => {
-    return (
-      <Employee
-        key={employee.id}
-        id={employee.id}
-        name={employee.name}
-        role={employee.role}
-      />
-    );
-  });
+  function updateEmployee(id, newName, newRole) {
+    const updateEmployees = employee.map((employee) => {
+      if (id == employee.id) {
+        return { ...employee, name: newName, role: newRole };
+      }
+      return employee;
+    });
 
-  return <div className="flex justiify-between flex-wrap"> {empElement}</div>;
-};
+    setEmployee(updateEmployees);
+  }
+  return (
+    <div className="flex flex-wrap justify-evenly ">
+      {employee.map((employee) => {
+        return (
+          <Employee
+            key={employee.id}
+            id={employee.id}
+            name={employee.name}
+            role={employee.role}
+            image={employee.image}
+            updateEmployee={updateEmployee}
+          />
+        );
+      })}
+    </div>
+  );
+}
 
 export default App;
+
+//senda data to employee component
