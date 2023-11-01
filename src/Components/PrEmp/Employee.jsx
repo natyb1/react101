@@ -22,6 +22,7 @@ const Employee = (props) => {
                 role={props.role}
                 id={props.id}
                 key={props.id}
+                updateEmployee={props.updateEmployee}
               />
             </div>
           </div>

@@ -26,38 +26,49 @@ function EditModal(props) {
           <Modal.Title>Modal title</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form class="w-full max-w-sm">
-            <div class="md:flex md:items-center mb-6">
-              <div class="md:w-1/3">
+          <form
+            onSubmit={(e) => {
+              handleClose();
+              e.preventDefault();
+              console.log("updated in the modal");
+              props.updateEmployee();
+            }}
+            id="update"
+            className="w-full max-w-sm"
+          >
+            <div className="md:flex md:items-center mb-6">
+              <div className="md:w-1/3">
                 <label
-                  class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                  for="name"
+                  className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                  htmlFor="name"
                 >
                   Full Name
                 </label>
               </div>
-              <div class="md:w-2/3">
+              <div className="md:w-2/3">
                 <input
-                  class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="name"
                   type="text"
-                  value={props.name}
-                  //   onChange={e.target.value}
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
                 />
               </div>
             </div>
-            <div class="md:flex md:items-center mb-6">
-              <div class="md:w-1/3">
+            <div className="md:flex md:items-center mb-6">
+              <div className="md:w-1/3">
                 <label
-                  class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                  for="role"
+                  className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                  htmlFor="role"
                 >
                   Role
                 </label>
               </div>
-              <div class="md:w-2/3">
+              <div className="md:w-2/3">
                 <input
-                  class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="role"
                   type="text"
                   value={role}
@@ -73,7 +84,9 @@ function EditModal(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary">Understood</Button>
+          <button form="update" className="btn btn-primary">
+            Update
+          </button>
         </Modal.Footer>
       </Modal>
     </>

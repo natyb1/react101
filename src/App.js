@@ -36,6 +36,10 @@ const App = () => {
     },
   ]);
 
+  function updateEmployee() {
+    console.log("hello from app.js");
+  }
+
   const empElement = employee.map((employee) => {
     return (
       <Employee
@@ -43,6 +47,7 @@ const App = () => {
         id={employee.id}
         name={employee.name}
         role={employee.role}
+        updateEmployee={updateEmployee}
       />
     );
   });
