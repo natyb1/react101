@@ -1,3 +1,5 @@
+const { ListGroup } = require("react-bootstrap");
+
 const data = [
   {
     id: 1,
@@ -135,73 +137,97 @@ const data = [
   },
 ];
 
-function Books() {
-  return data;
+// function Books() {
+//   return data;
+// }
+
+// function getBook(id) {
+//   return data.find((d) => d.id === id);
+// }
+
+// const books = Books();
+// const book = getBook(5);
+// console.log(book);
+// // Array Methods
+// // 1, map methood
+// // it receives a callback funcction  and returns an array
+
+// const essentialData = books.map((e) => ({
+//   author: e.author,
+//   title: e.title,
+// }));
+
+// const test = books.map((book) => {
+//   return {
+//     reviews: book.title,
+//   };
+// });
+
+// const titles = books.map((book) => book.title);
+// console.log(titles);
+// const bk = books.map((book) => {
+//   return {
+//     title: book.title,
+//     pages: book.pages,
+//   };
+// });
+
+// console.log(bk);
+
+// // 2, filter method
+// // it returns a boolean value and takes a callback function , it basically filters out false values and assign true values to tle varialble provided
+// // returns an array
+// console.log(essentialData);
+// const adventureBooks = books
+//   .filter((book) => book.genres.includes("fantasy"))
+//   .map((book) => book.title);
+// console.log(adventureBooks);
+
+// const largeeBooks = books
+//   .filter((books) => books.pages > 500)
+//   .map((book) => book.title);
+// console.log(largeeBooks);
+
+// /// 3, sort method
+// // sorts the provided array or object based on the criteria provided ,
+// // it will modify the oorigiinal array so it iis asdviced to use it with slice method
+
+// const arr = [5, 4, 23, 0, -4, 8, 3];
+// const sorted = arr.slice().sort((a, b) => a - b);
+// console.log(sorted);
+// console.log(arr);
+// const sortedPages = books.slice().sort((a, b) => b.pages - a.pages);
+// console.log(sortedPages);
+
+// const newbook = {
+//   title: "Ajenda",
+//   pages: 2367,
+//   author: "Natnael Birhanu",
+//   publicationDate: "2023-02-32",
+// };
+// //Adding element to an array or object without changing the previous one(using Spread operator)
+// const bookAfterAdd = [...books, newbook];
+
+// //2,deleting element from Object (using filter)
+// const deleteAfterBook = books
+//   .filter((book) => book.id !== 3)
+//   .map((book) => book.id); //showing only the id
+// console.log(deleteAfterBook);
+
+// //3,updating objects( using maop function) and spread operator
+
+// const bookAfterUpdate = books
+//   .map((book) =>
+//     book.id === 5 ? { ...book, title: "hankok", author: "natyb" } : book
+//   )
+//   .map((book) => book.title); // showing only the title
+// console.log(bookAfterUpdate);
+
+// Asynchronous javascript promises .... Fetching
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const value = await res.json();
+  console.log(value);
 }
-
-function getBook(id) {
-  return data.find((d) => d.id === id);
-}
-
-const books = Books();
-const book = getBook(5);
-console.log(book);
-// Array Methods
-// 1, map methood
-// it receives a callback funcction  and returns an array
-
-const essentialData = books.map((e) => ({
-  author: e.author,
-  title: e.title,
-}));
-
-const test = books.map((book) => {
-  return {
-    reviews: book.title,
-  };
-});
-
-const titles = books.map((book) => book.title);
-console.log(titles);
-const bk = books.map((book) => {
-  return {
-    title: book.title,
-    pages: book.pages,
-  };
-});
-
-console.log(bk);
-
-// 2, filter method
-// it returns a boolean value and takes a callback function , it basically filters out false values and assign true values to tle varialble provided
-// returns an array
-console.log(essentialData);
-const adventureBooks = books
-  .filter((book) => book.genres.includes("fantasy"))
-  .map((book) => book.title);
-console.log(adventureBooks);
-
-const largeeBooks = books
-  .filter((books) => books.pages > 500)
-  .map((book) => book.title);
-console.log(largeeBooks);
-
-/// 3, sort method
-// sorts the provided array or object based on the criteria provided ,
-// it will modify the oorigiinal array so it iis asdviced to use it with slice method
-
-const arr = [5, 4, 23, 0, -4, 8, 3];
-const sorted = arr.slice().sort((a, b) => a - b);
-console.log(sorted);
-console.log(arr);
-const sortedPages = books.slice().sort((a, b) => b.pages - a.pages);
-console.log(sortedPages);
-
-const newbook = {
-  title: "Ajenda",
-  pages: 2367,
-  author: "Natnael Birhanu",
-  publicationDate: "2023-02-32",
-};
-
-const bookAfterAdd = [...books, newbook];
+getTodos();
