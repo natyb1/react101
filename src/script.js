@@ -195,4 +195,13 @@ const sorted = arr.slice().sort((a, b) => a - b);
 console.log(sorted);
 console.log(arr);
 const sortedPages = books.slice().sort((a, b) => b.pages - a.pages);
-sortedPages;
+console.log(sortedPages);
+
+const newbook = {
+  title: "Ajenda",
+  pages: 2367,
+  author: "Natnael Birhanu",
+  publicationDate: "2023-02-32",
+};
+
+const bookAfterAdd = [...books, newbook];
