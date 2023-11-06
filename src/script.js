@@ -145,6 +145,10 @@ function getBook(id) {
 
 const books = Books();
 const book = getBook(5);
+console.log(book);
+// Array Methods
+// 1, map methood
+// it receives a callback funcction  and returns an array
 
 const essentialData = books.map((e) => ({
   author: e.author,
@@ -157,12 +161,38 @@ const test = books.map((book) => {
   };
 });
 
+const titles = books.map((book) => book.title);
+console.log(titles);
+const bk = books.map((book) => {
+  return {
+    title: book.title,
+    pages: book.pages,
+  };
+});
+
+console.log(bk);
+
+// 2, filter method
+// it returns a boolean value and takes a callback function , it basically filters out false values and assign true values to tle varialble provided
+// returns an array
+console.log(essentialData);
 const adventureBooks = books
   .filter((book) => book.genres.includes("fantasy"))
   .map((book) => book.title);
-adventureBooks;
+console.log(adventureBooks);
 
 const largeeBooks = books
   .filter((books) => books.pages > 500)
   .map((book) => book.title);
-largeeBooks;
+console.log(largeeBooks);
+
+/// 3, sort method
+// sorts the provided array or object based on the criteria provided ,
+// it will modify the oorigiinal array so it iis asdviced to use it with slice method
+
+const arr = [5, 4, 23, 0, -4, 8, 3];
+const sorted = arr.slice().sort((a, b) => a - b);
+console.log(sorted);
+console.log(arr);
+const sortedPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedPages;
