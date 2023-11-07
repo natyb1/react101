@@ -230,4 +230,5 @@ async function getTodos() {
   const value = await res.json();
   console.log(value);
 }
+
 getTodos();
